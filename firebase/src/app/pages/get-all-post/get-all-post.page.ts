@@ -16,9 +16,24 @@ import { Router } from '@angular/router';
 export class GetAllPostPage implements OnInit {
 
   constructor(private postServe: IncidentServiceService,private router: Router) { }
-
+  postData: any 
   ngOnInit() {
- 
+    this.getData()
   }
-  
+  async getData(){
+    await  this.postServe.getPost()
+    .subscribe(
+      res =>{
+        console.log(res);
+        this.postData =res;
+        console.log(this.postData);
+      }, err =>{
+        console.log(err);
+      }
+    )
+  }
+  createPost(){
+   this.router.navigateByUrl('create-post')
+  }
+
 }

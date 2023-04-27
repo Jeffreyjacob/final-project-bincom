@@ -19,14 +19,6 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/sign-up/sign-up.page').then( m => m.SignUpPage)
   },
   {
-    path: 'create',
-    loadComponent: () => import('./pages/create/create.page').then( m => m.CreatePage)
-  },
-  {
-    path: 'getincident',
-    loadComponent: () => import('./pages/getincident/getincident.page').then( m => m.GetincidentPage)
-  },
-  {
     path: 'create-post',
     loadComponent: () => import('./pages/create-post/create-post.page').then( m => m.CreatePostPage)
   },

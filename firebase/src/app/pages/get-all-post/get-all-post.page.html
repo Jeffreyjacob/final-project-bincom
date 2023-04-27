@@ -5,5 +5,19 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
+  <ion-card  *ngFor="let post of postData">
+    <ion-item>
+      <ion-label>
+        <h2>{{post.title.rendered}}</h2>
+        <p [innerHtml]="post.excerpt.rendered"></p>
+        <p>{{post.date}}</p>
+      </ion-label>
+    </ion-item>
+   </ion-card>
+  
+   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="success" (click)="createPost()">
+     <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
