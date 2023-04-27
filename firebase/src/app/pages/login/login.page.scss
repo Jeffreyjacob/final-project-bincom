@@ -1,0 +1,21 @@
+.flex-center{
+    display: flex;
+    height: 100%;
+    justify-items: center;
+    align-items: center;
+    margin-left:10%;
+ 
+ }
+ion-button{
+    text-transform: initial;
+    font-size: 14px;
+    color: var(--ion-color-success);
+    border-radius: 10px;
+ }
+ ion-content{
+     --background: var(--ion-color-success);
+ }
+ ion-card-title{
+    text-align: center;
+}
+

@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="success">
+    <ion-title>Report an Incident</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <form [formGroup]="CreateIncidentForm" (submit)="createIncident()">
+    <ion-card-content>
+      <ion-item>
+        <ion-label stacked> Name</ion-label>
+        <ion-input formControlName="name" type="text" place="Please enter your name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Type of Incident</ion-label>
+        <ion-input formControlName="TypeOfInicdent" type="text" place="Please enter type of incident"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>brief Description</ion-label>
+        <ion-textarea formControlName="briefDescription" type="text" place="Please enter a brief description of the incident"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>locaton Of Incident</ion-label>
+        <ion-input formControlName="locatonOfIncident" type="text" place="Please enter the location of the incident"></ion-input>
+      </ion-item>
+      <ion-button color="success" expand="block" type="sunmit" [disabled]="!CreateIncidentForm.valid">
+         Add Incident
+      </ion-button>
+    </ion-card-content>
+  </form>
+  </ion-card>
+</ion-content>
