@@ -4,4 +4,5 @@ export interface Incident{
     TypeOfInicdent: string,
     briefDescription: string,
     locatonOfIncident: string
+    Image:string
 }

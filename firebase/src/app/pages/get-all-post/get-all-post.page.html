@@ -5,18 +5,31 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card  *ngFor="let post of postData">
-    <ion-item>
-      <ion-label>
-        <h2>{{post.title.rendered}}</h2>
-        <p [innerHtml]="post.excerpt.rendered"></p>
-        <p>{{post.date}}</p>
-      </ion-label>
-    </ion-item>
-   </ion-card>
-  
-   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="success" (click)="createPost()">
+  <ion-card *ngFor="let incident of incident$ | async" >
+    <ion-card-content>
+      <ion-item  >
+        <ion-avatar slot="start">
+          <img src="/assets/icon/IMG_4293.PNG">
+        </ion-avatar>
+       <ion-label>
+        <h3>Name</h3>
+        <p>{{incident.name}}</p>
+        <h3>Type Of Incident</h3>
+        <p>{{incident.TypeOfInicdent}}</p>
+        <h3>Brief Description</h3>
+        <p>{{incident.briefDescription}}</p>
+        <h3>Location of Incident</h3>
+        <p>{{incident.locatonOfIncident}}</p>
+        <h3>Image of The Incident</h3>
+        <img src="{{incident.Image}}" style="width: 400px; height: 200px;">
+       </ion-label>
+      </ion-item>
+    
+    </ion-card-content>
+    
+  </ion-card>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="success" (click)="createIncident()">
      <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>

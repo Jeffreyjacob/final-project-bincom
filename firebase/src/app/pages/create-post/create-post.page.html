@@ -6,21 +6,40 @@
 
 <ion-content [fullscreen]="true">
   <ion-card>
-    <ion-item>
-      <ion-label position="floating">Name</ion-label>
-      <ion-input type="text" [(ngModel)]="Name"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Brief Description</ion-label>
-      <ion-input type="text" [(ngModel)]="BriefDescription"></ion-input>
-    </ion-item>
-     <div class="upload">
-      <p>Upload an image</p><br>
-      
-      <ion-button (click)="addImage()" color="success">camera</ion-button>
-    </div>
-    
+    <form [formGroup]="CreateIncidentForm" (submit)="createIncident()">
+    <ion-card-content>
+      <ion-item>
+        <ion-label stacked> Name</ion-label>
+        <ion-input formControlName="name" type="text" place="Please enter your name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Type of Incident</ion-label>
+        <ion-input formControlName="TypeOfInicdent" type="text" place="Please enter type of incident"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>brief Description</ion-label>
+        <ion-textarea formControlName="briefDescription" type="text" place="Please enter a brief description of the incident"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>locaton Of Incident</ion-label>
+        <ion-input formControlName="locatonOfIncident" type="text" place="Please enter the location of the incident"></ion-input>
+      </ion-item>
+      <ion-item>
+        
+          <p>Upload an image of the incident</p><br>
+          <img [src]="Image" width="150px" height="150px"><br>
+          <ion-button (click)="addNewToImage()" color="success" class="uploadBtn">
+            <ion-icon aria-hidden="true" name="cloud-upload"></ion-icon>
+              Upload
+          </ion-button>
+      </ion-item>
+      <ion-button color="success" expand="block" type="sunmit" [disabled]="!CreateIncidentForm.valid">
+         Add Incident
+      </ion-button>
+    </ion-card-content>
+  </form>
 
   </ion-card>
-  <ion-button (click)="onAddPost()" color="success">Add New Incident</ion-button>
+
+  
 </ion-content>

@@ -9,10 +9,11 @@ import { environment } from './environments/environment';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import {provideAuth,getAuth} from '@angular/fire/auth';
 import {provideFirestore,getFirestore} from '@angular/fire/firestore';
+import {provideStorage,getStorage}  from '@angular/fire/storage';
 import { ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {defineCustomElements} from '@ionic/pwa-elements/loader'
-
+import {AngularFireMessagingModule} from '@angular/fire/compat/messaging'
 
 if (environment.production) {
   enableProdMode();
@@ -24,6 +25,8 @@ bootstrapApplication(AppComponent, {
     importProvidersFrom(IonicModule.forRoot({}),HttpClientModule,provideFirebaseApp(()=> initializeApp(environment.firebase)),
     provideAuth(()=> getAuth()),
     provideFirestore(()=> getFirestore()),
+    provideStorage(()=>getStorage()),
+    AngularFireMessagingModule,
     ReactiveFormsModule,
  
    

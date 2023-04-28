@@ -5,6 +5,9 @@ import { IonicModule } from '@ionic/angular';
 import { IncomingHttpHeaders } from 'http';
 import { IncidentServiceService } from 'src/app/services/incident-service.service';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Firestore, collection, collectionData } from '@angular/fire/firestore';
+import { Incident } from 'src/model/Incident';
 
 @Component({
   selector: 'app-get-all-post',
@@ -14,26 +17,19 @@ import { Router } from '@angular/router';
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class GetAllPostPage implements OnInit {
+  incident$ = collectionData(collection(this.firestore,'mycollection'),{
+    idField: 'id'
 
-  constructor(private postServe: IncidentServiceService,private router: Router) { }
-  postData: any 
+  }) as Observable<Incident[]>
+  
+
+  constructor(private firestoreservice: IncidentServiceService,private  readonly firestore: Firestore,private router: Router) { }
+
   ngOnInit() {
-    this.getData()
+
   }
-  async getData(){
-    await  this.postServe.getPost()
-    .subscribe(
-      res =>{
-        console.log(res);
-        this.postData =res;
-        console.log(this.postData);
-      }, err =>{
-        console.log(err);
-      }
-    )
-  }
-  createPost(){
-   this.router.navigateByUrl('create-post')
-  }
+  createIncident(){
+    this.router.navigateByUrl('create-post')
+   }
 
 }
