@@ -14,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {defineCustomElements} from '@ionic/pwa-elements/loader'
 import {AngularFireMessagingModule} from '@angular/fire/compat/messaging'
+import { firebaseConfig } from './model/firebaseConfig';
 
 if (environment.production) {
   enableProdMode();
@@ -22,7 +23,7 @@ if (environment.production) {
 bootstrapApplication(AppComponent, {
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    importProvidersFrom(IonicModule.forRoot({}),HttpClientModule,provideFirebaseApp(()=> initializeApp(environment.firebase)),
+    importProvidersFrom(IonicModule.forRoot({}),HttpClientModule,provideFirebaseApp(()=> initializeApp(firebaseConfig.firebase)),
     provideAuth(()=> getAuth()),
     provideFirestore(()=> getFirestore()),
     provideStorage(()=>getStorage()),

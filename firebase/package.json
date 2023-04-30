@@ -31,6 +31,7 @@
     "@ionic/pwa-elements": "^3.1.1",
     "cordova-plugin-camera": "^6.0.0",
     "firebase": "^9.19.1",
+    "firebase-tools": "^11.29.1",
     "ionicons": "^7.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
